@@ -1,0 +1,185 @@
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.50),rgba(255, 255, 255, 0.50)),url(../statics/images/bg.gif);
+    background-size: cover;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 150px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: rgb(41, 20, 117);
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #f1c50e;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+img{
+	max-width: 100%;
+}
+.content2{
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: black;
+  }
+.content2 h1{
+    font-size: 45px;
+    font-weight: 100px;
+    line-height: 25px;
+  } 
+.gallery img{
+	width: 100%;
+    height: 150px;
+	cursor: pointer;
+}
+.global-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+.global-container a{
+    color: black;
+}
+.card-title{
+    font-weight: 900;
+    padding-top: 20px;
+}
+.signin{
+    padding-top: 10px;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.signup{
+    text-align: center;
+    padding-top: 25px;
+}
+.login-form{
+    width: 380px;
+    height: 450px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.25)    ;
+    border-radius: 10px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"]{
+    width: 380px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+.container_cd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+.container_cd .card{
+    position: relative;
+    width: 300px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05)
+                inset -5px -5px 5px rgba(255, 255, 255, 0.50),
+                5px 5px 5px rgba(0, 0, 0, 0.05),
+                -5px -5px 5px rgba(255, 255, 255, 0.50);
+    border-radius: 15px;
+    margin: 30px;
+}
+.container_cd .card .box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #fbeced ;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 00.5s;
+
+}
+.container_cd .card:hover .box{
+    transform: translateY(-50px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #b3879d,#dfbda5
+    );
+}
+.container_cd .card .box .content{
+    padding: 20px;
+    text-align: center;
+}
+
+.container_cd .card .box .content h1{
+    font-size: 1.8em;
+    color: black;
+    z-index: 1;
+    transition: 00.5s;
+}
+.container_cd .card:hover .box .content h1,.container_cd .card:hover .box .content p{
+    color: white;
+}
+.container_cd .card .box .content p{
+    font-size: 1em;
+    font-weight: 300;
+    color: black;
+    z-index: 1;
+    transition: 00.5s;
+}
+.container_cd .card .box .content a{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #79848a;
+    margin-top: 5px;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.container_cd .card:hover .box .content a{
+    background: palevioletred;
+}
+.footer { 
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
