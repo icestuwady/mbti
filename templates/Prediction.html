@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" media="screen">
+    <title>Prediction</title>
+  </head>
+  
+  <body style="background-color: #fbeced;">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('predict')}}">
+          <img src="../static/images/Logo.png" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('predict')}}">Prediction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('history')}}">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('personalitylogin')}}">Personality Type</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.16personalities.com" target="_blank">Personality Test</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('about_l')}}">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" action="{{url_for('signout')}}">
+            <button class="btn btn-outline-dark" type="submit">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content2">
+      {% if session['username'] %}
+      <h1><b>Welcome {{session['name']}}</b></h1>
+      {% else %}
+      <h1><b>Not Sign In Yet</b></h1>
+      {% endif %}
+    </div>
+    <div class="content2" style="padding-top: 150px; font-weight: 100;">
+        <h2><b>Prediction Personality</b></h2>
+    </div>
+
+    <div class="container-lg" style="padding-top: 180px;">
+        <form action="{{url_for('prediction')}}" method="POST">
+            <div>
+                <h4 for="InputYourType" style="color: black;">Your MBTI from test </h4>
+                <select class="form-select" name="select" aria-label="Default select example">
+                    <option value="ENFJ">ENFJ</option>
+                    <option value="ENFP">ENFP</option>
+                    <option value="ENTJ">ENTJ</option>
+                    <option value="ENTP">ENTP</option>
+                    <option value="ESFJ">ESFJ</option>
+                    <option value="ESFP">ESFP</option>
+                    <option value="ESTJ">ESTJ</option>
+                    <option value="ESTP">ESTP</option>
+                    <option value="INFJ">INFJ</option>
+                    <option value="INFP">INFP</option>
+                    <option value="INTJ">INTJ</option>
+                    <option value="INTP">INTP</option>
+                    <option value="ISFJ">ISFJ</option>
+                    <option value="ISFP">ISFP</option>
+                    <option value="ISTJ">ISTJ</option>
+                    <option value="ISTP">ISTP</option>
+                  </select>
+            </div>
+
+            <div style="padding-top: 30px;">
+                <h4 for="InputEmail" style="color: black;">Your Post</h4>
+                <textarea name="text_post" class="form-control" placeholder="Type a posts here" id="floatingTextarea2" style="height: 150px"></textarea>
+            </div>
+           
+            <div class="d-grid gap-2" style="padding-top: 50px; padding-bottom: 50px;">
+                <button type="submit" value="submit" class="btn btn-warning" style="border: 2px solid rgba(0, 0, 0, 0.2); border-radius: 10px;">Prediction</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <footer class="footer">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+          © 2021 Senior Project, Bachelor of Engineering in Computer Engineering, Mae Fah Luang University
+          <br>MYERS-BRIGGS TYPE INDICATOR (MBTI) PREDICTION USING MACHINE LEARNING
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+
+
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+  </body>
+</html>

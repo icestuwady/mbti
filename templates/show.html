@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../static/style.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    
+    <title>Result</title>
+  </head>
+  
+  <body style="background-color: #fbeced;">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('predict')}}">
+          <img src="../static/images/Logo.png" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('predict')}}">Prediction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('history')}}">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Personality_login.html">Personality Type</a>
+            </li>
+              
+          </ul>
+          <form class="d-flex">
+            <a href="{{url_for('home')}}" class="btn btn-outline-dark" type="submit">Sign Out</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content2" style="padding-top: 50px;">
+      {%if yourtype != prediction %}
+      <h1 style="color: rgb(160, 116, 22);">Oops! Our model says you're not that type.</h1><br>
+
+      {%elif yourtype == prediction %}
+      <h1 style="color: rgb(52, 66, 148);">Wow, You really are this type.</h1><br>
+      {%endif%}
+    </div>
+
+    <div class="row" style="text-align: center; padding-top: 150px;">
+      <div class="column" style="text-align: center; float: left; width: 50%; padding: 10px;">
+          <h3 style="color: green;"><b>Your MBTI Type From Test</b></h3>
+          <h2 style="color: green;">{{yourtype}}</h2>
+      </div>
+
+      <div class="column" style="text-align: center; float: left; width: 50%; padding: 10px;">
+          <h3 style="color: #FF5733;"><b>Your MBTI Type From Prediction</b></h3> 
+
+          {%if prediction == "ENFJ" %} 
+          <h2 style="color: #FF5733;">ENFJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/enfj'>Read More</a> 
+
+          {%elif prediction == "ENFP" %}
+          <h2 style="color: #FF5733;">ENFP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/enfp'>Read More</a>
+          
+          {%elif prediction == "ENTJ" %}
+          <h2 style="color: #FF5733;">ENTJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/entj'>Read More</a>
+
+          {%elif prediction == "ENTP" %}
+          <h2 style="color: #FF5733;">ENTP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/entp'>Read More</a>
+
+          {%elif prediction == "ESFJ" %} 
+          <h2 style="color: #FF5733;">ESFJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/esfj'>Read More</a> 
+
+          {%elif prediction == "ESFP" %}
+          <h2 style="color: #FF5733;">ESFP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/esfp'>Read More</a>
+          
+          {%elif prediction == "ESTJ" %}
+          <h2 style="color: #FF5733;">ESTJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/estj'>Read More</a>
+
+          {%elif prediction == "ESTP" %}
+          <h2 style="color: #FF5733;">ESTP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/estp'>Read More</a>
+
+          {%elif prediction == "INFJ" %} 
+          <h2 style="color: #FF5733;">INFJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/infj'>Read More</a> 
+
+          {%elif prediction == "INFP" %}
+          <h2 style="color: #FF5733;">INFP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/infp'>Read More</a>
+          
+          {%elif prediction == "INTJ" %}
+          <h2 style="color: #FF5733;">INTJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/intj'>Read More</a>
+
+          {%elif prediction == "INTP" %}
+          <h2 style="color: #FF5733;">INTP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/intp'>Read More</a>
+
+          {%elif prediction == "ISFJ" %} 
+          <h2 style="color: #FF5733;">ISFJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/isfj'>Read More</a> 
+
+          {%elif prediction == "ISFP" %}
+          <h2 style="color: #FF5733;">ISFP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/isfp'>Read More</a>
+          
+          {%elif prediction == "ISTJ" %}
+          <h2 style="color: #FF5733;">ISTJ</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/istj'>Read More</a>
+
+          {%elif prediction == "ISTP" %}
+          <h2 style="color: #FF5733;">ISTP</h2><br>
+          {{probability}}<br>
+          If you want to know about this type <a href='/istp'>Read More</a>
+          
+          {%endif%}
+      </div>
+
+      <div style="padding-top: 50px;">
+        <a href="{{url_for('predict')}}" class="btn btn-warning ">BACK</a>
+      </div>
+
+  </div>
+
+  <div class="row" style=" padding-left: 200px; padding-right: 200px; padding-top: 50px;">
+    <div style="text-align: center;">
+      <h3>More Details</h3>
+    </div>
+    <div style="padding-top: 30px;">
+      <h4 style="color: #6f1991;">Confidence</h4>
+      <p style="text-indent: 2.5em;">Confidence represents the accuracy of our model. The higher the value means, the more our model tells you that you are that type.</p>
+      <h4 style="color: #6f1991; padding-top: 30px;">Table</h4>
+      <p style="text-indent: 2.5em;">This table shows how confident the model (%) in each of your types. The highest type is the result of our model predicting that you are appropriate and should be that type. That means if you have values of other types You also have a chance to be that type. But the most value is the best answer anyway.</p>
+    </dir>
+    <div>
+      <div id='chart' class='chart'”></div>
+    </div>
+  </div>
+
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <script type='text/javascript'>
+    var graphs = {{ graphJSON | safe }};
+    Plotly.plot('chart',graphs,{});
+  </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+  </body>
+</html>
